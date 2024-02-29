@@ -1,8 +1,8 @@
-import HText from "@/shared/HText";
+import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
+import HText from "@/shared/HText";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -10,7 +10,7 @@ type Props = {
 
 const ContactUs = ({ setSelectedPage }: Props) => {
   const inputStyles = `mb-5 w-full rounded-lg bg-primary-300
-    px-5 py-3 placeholder-white`;
+  px-5 py-3 placeholder-white`;
 
   const {
     register,
@@ -24,6 +24,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
       e.preventDefault();
     }
   };
+
   return (
     <section id="contactus" className="mx-auto w-5/6 pt-24 pb-32">
       <motion.div
@@ -42,7 +43,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           }}
         >
           <HText>
-            <span className="text-primary-500">JOIN NOW</span>TO GET IN SHAPE
+            <span className="text-primary-500">JOIN NOW</span> TO GET IN SHAPE
           </HText>
           <p className="my-5">
             Congue adipiscing risus commodo placerat. Tellus et in feugiat nisl
@@ -67,7 +68,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <form
               target="_blank"
               onSubmit={onSubmit}
-              action="https://formsubmit.co/ed45eb696304868c354ee70ea1e41deb"
+              action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
               method="POST"
             >
               <input
@@ -131,6 +132,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               </button>
             </form>
           </motion.div>
+
           <motion.div
             className="relative mt-16 basis-2/5 md:mt-0"
             initial="hidden"
