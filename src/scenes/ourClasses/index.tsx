@@ -5,9 +5,9 @@ import image3 from "@/assets/image3.png";
 import image4 from "@/assets/image4.png";
 import image5 from "@/assets/image5.png";
 import image6 from "@/assets/image6.png";
-import HText from "@/shared/HText";
 import { motion } from "framer-motion";
-import Class from "@/scenes/ourClasses/Class";
+import HText from "@/shared/HText";
+import Class from "./Class";
 
 const classes: Array<ClassType> = [
   {
@@ -43,13 +43,14 @@ const classes: Array<ClassType> = [
     image: image6,
   },
 ];
+
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const OurClasses = ({ setSelectedPage }: Props) => {
   return (
-    <section id="ourClasses" className="w-full bg-primary-100 py-40">
+    <section id="ourclasses" className="w-full bg-primary-100 py-40">
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.OurClasses)}
       >
@@ -74,19 +75,19 @@ const OurClasses = ({ setSelectedPage }: Props) => {
             </p>
           </div>
         </motion.div>
+        <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
+          <ul className="w-[2800px] whitespace-nowrap">
+            {classes.map((item: ClassType, index) => (
+              <Class
+                key={`${item.name}-${index}`}
+                name={item.name}
+                description={item.description}
+                image={item.image}
+              />
+            ))}
+          </ul>
+        </div>
       </motion.div>
-      <div className="mt-10 h-[353px] w-full overflow-x-auto">
-        <ul className="w-[2800px] whitespace-nowrap">
-          {classes.map((item, index) => (
-            <Class
-              key={`${item.name}-${index}`}
-              name={item.name}
-              description={item.description}
-              image={item.image}
-            />
-          ))}
-        </ul>
-      </div>
     </section>
   );
 };
